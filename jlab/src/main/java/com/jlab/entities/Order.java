@@ -1,12 +1,19 @@
 package com.jlab.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "PRODUCT_ORDER")
+@Table(name = "CUSTOMER_ORDER")
+@Getter
+@Setter
 public class Order implements Serializable {
 
     @Id
@@ -21,6 +28,13 @@ public class Order implements Serializable {
     @Column(name = "DATE")
     private Date date;
 
+    @JoinTable(name = "ORDER_PRODUCT", joinColumns = {
+            @JoinColumn(name = "ORDER_ID", referencedColumnName = "ID")}, inverseJoinColumns = {
+            @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID")})
+    @ManyToMany
+    private List<Product> productList = new ArrayList<>();
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -32,29 +46,5 @@ public class Order implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 }

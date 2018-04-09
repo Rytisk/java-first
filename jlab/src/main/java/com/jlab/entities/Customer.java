@@ -1,8 +1,12 @@
 package com.jlab.entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -11,6 +15,8 @@ import java.util.Objects;
         @NamedQuery(name = "Customer.findAll", query="select c from Customer as c")
 })
 @Table(name="CUSTOMER")
+@Getter
+@Setter
 public class Customer implements Serializable {
 
     public Customer(){}
@@ -29,26 +35,6 @@ public class Customer implements Serializable {
 
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public List<Order> getOrders(){ return orders; }
-
-    public void setOrders(List<Order> orders) { this.orders = orders; }
 
     @Override
     public boolean equals(Object o) {

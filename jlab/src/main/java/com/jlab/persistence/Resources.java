@@ -13,7 +13,7 @@ import javax.persistence.SynchronizationType;
 @ApplicationScoped
 public class Resources {
 
-    @PersistenceContext(name = "ShopPU")
+    /*@PersistenceContext(name = "ShopPU")
     private EntityManagerFactory emf;
 
     @Produces
@@ -21,5 +21,5 @@ public class Resources {
     @RequestScoped
     private EntityManager createJTAEntityManager() {return emf.createEntityManager(SynchronizationType.SYNCHRONIZED); }
 
-    private void closeDefaultEntityManager(@Disposes @Default EntityManager em) { em.close();}
+    private void closeDefaultEntityManager(@Disposes @Default EntityManager em) { em.close();}*/
 }
