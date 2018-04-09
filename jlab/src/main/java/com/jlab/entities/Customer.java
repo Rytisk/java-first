@@ -3,6 +3,7 @@ package com.jlab.entities;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,6 +27,9 @@ public class Customer implements Serializable {
     @Column(name="NAME")
     private String name;
 
+    @OneToMany(mappedBy = "customer")
+    private List<Order> orders;
+
     public String getName() {
         return name;
     }
@@ -41,6 +45,10 @@ public class Customer implements Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
+
+    public List<Order> getOrders(){ return orders; }
+
+    public void setOrders(List<Order> orders) { this.orders = orders; }
 
     @Override
     public boolean equals(Object o) {

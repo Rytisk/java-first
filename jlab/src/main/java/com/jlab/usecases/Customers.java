@@ -13,6 +13,7 @@ import java.util.List;
 public class Customers {
     @Inject
     private CustomersDAO customersDAO;
+
     private List<Customer> allCustomers;
 
     private Customer newCustomer = new Customer();
@@ -23,7 +24,7 @@ public class Customers {
     }
 
     private void loadCustomers() {
-        this.allCustomers = customersDAO.loadAll();
+        this.allCustomers = customersDAO.getAllCustomers();
     }
 
     public List<Customer> getAllCustomers() {
@@ -32,8 +33,8 @@ public class Customers {
 
     @Transactional
     public String createNewCustomer() {
-        customersDAO.save(newCustomer);
-        return "success";
+        customersDAO.create(newCustomer);
+        return "home?faces-redirect=true";
     }
 
     public Customer getNewCustomer() {

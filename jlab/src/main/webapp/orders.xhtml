@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head/>
+<h:body>
+    <h2>Books of customer named #{ordersForCustomer.customer.name}:</h2>
+    <ol>
+        <ui:repeat value="#{ordersForCustomer.customer.orders}" var="order">
+            <li>#{order.date}</li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText a:placeholder="date" value="#{ordersForCustomer.newOrder.date}">
+            <f:convertDateTime pattern="yyyy-MM-dd" />
+        </h:inputText>
+        <h:commandButton
+                value="Add new Order"
+                action="#{ordersForCustomer.createOrder()}">
+            <f:param name="customerId" value="#{ordersForCustomer.customer.id}"/>
+        </h:commandButton>
+    </h:form>
+</h:body>
+</html>
