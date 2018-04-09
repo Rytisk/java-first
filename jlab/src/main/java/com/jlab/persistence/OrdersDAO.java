@@ -11,7 +11,7 @@ import java.util.List;
 @ApplicationScoped
 public class OrdersDAO {
 
-    @PersistenceContext
+    @Inject
     private EntityManager em;
 
     public void create(Order order) {

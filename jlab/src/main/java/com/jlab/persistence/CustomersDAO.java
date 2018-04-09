@@ -10,7 +10,7 @@ import java.util.List;
 
 @ApplicationScoped
 public class CustomersDAO {
-    @PersistenceContext
+    @Inject
     private EntityManager em;
 
     public List<Customer> getAllCustomers(){
