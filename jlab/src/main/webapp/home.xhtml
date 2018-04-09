@@ -1,12 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-<html xmlns = "http://www.w3.org/1999/xhtml">
-<head>
-    <title>JSF Tutorial!</title>
-</head>
-
-<body>
-#{helloWorld.getMessage()}
-</body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+>
+<h:head/>
+<h:body>
+    <h2>Customers:</h2>
+    <ol>
+        <ui:repeat value="#{customers.allCustomers}" var="customer">
+            <li>#{customer.name}</li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{customers.newCustomer.name}" required="true" />
+        <h:commandButton
+                value="Add new customer"
+                action="#{customers.createNewCustomer()}"
+        />
+    </h:form>
+</h:body>
 </html>
