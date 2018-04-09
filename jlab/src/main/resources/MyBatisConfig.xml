@@ -5,7 +5,7 @@
 <configuration>
     <typeAliases>
         <typeAlias type="com.jlab.mybatis.model.Customer" alias="Customer"/>
-        <typeAlias type="com.jlab.mybatis.model.Order" alias="Order"/>
+        <typeAlias type="com.jlab.mybatis.model.CustomerOrder" alias="CustomerOrder"/>
         <typeAlias type="com.jlab.mybatis.model.Product" alias="Product"/>
         <typeAlias type="com.jlab.mybatis.model.OrderProduct" alias="OrderProduct"/>
     </typeAliases>
@@ -18,9 +18,9 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatis.xml/CustomerMapper.xml"/>
-        <mapper resource="mybatis.xml/OrderMapper.xml"/>
-        <mapper resource="mybatis.xml/ProductMapper.xml"/>
-        <mapper resource="mybatis.xml/OrderProduct.xml"/>
+        <mapper resource="/mybatis/CustomerMapper.xml"/>
+        <mapper resource="/mybatis/CustomerOrderMapper.xml"/>
+        <mapper resource="/mybatis/ProductMapper.xml"/>
+        <mapper resource="/mybatis/OrderProductMapper.xml"/>
     </mappers>
 </configuration>

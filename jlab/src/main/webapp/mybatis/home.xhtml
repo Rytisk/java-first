@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+    <h2>My batis customers:</h2>
+    <ol>
+        <ui:repeat value="#{customersMyBatis.allCustomers}" var="customer">
+            <li><h:link value="#{customer.name}" outcome="orders?customerId=#{customer.id}"/></li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        <h:inputText value="#{customersMyBatis.newCustomer.name}" required="true" />
+        <h:commandButton
+                value="Add new customer"
+                action="#{customersMyBatis.createNewCustomer()}"
+        />
+    </h:form>
+</h:body>
+</html>

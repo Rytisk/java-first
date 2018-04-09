@@ -1,4 +1,4 @@
-package com.jlab.persistence.mybatis.model;
+package com.jlab.mybatis.model;
 
 import java.util.Date;
 
