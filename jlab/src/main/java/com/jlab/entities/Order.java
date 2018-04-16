@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "CUSTOMER_ORDER")
+@Table(name = "PORDER")
 @Getter
 @Setter
 public class Order implements Serializable {
@@ -28,11 +28,8 @@ public class Order implements Serializable {
     @Column(name = "DATE")
     private Date date;
 
-    @JoinTable(name = "ORDER_PRODUCT", joinColumns = {
-            @JoinColumn(name = "ORDER_ID", referencedColumnName = "ID")}, inverseJoinColumns = {
-            @JoinColumn(name = "PRODUCT_ID", referencedColumnName = "ID")})
-    @ManyToMany
-    private List<Product> productList = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.order", cascade=CascadeType.ALL)
+    private List<OrderProduct> orderProducts = new ArrayList<>();
 
 
     @Override

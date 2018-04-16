@@ -8,7 +8,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h2>Books of customer named #{ordersForCustomer.customer.name}:</h2>
+    <h2>Orders of customer named #{ordersForCustomer.customer.name}:</h2>
     <ol>
         <ui:repeat value="#{ordersForCustomer.customer.orders}" var="order">
             <li>#{order.date}</li>
