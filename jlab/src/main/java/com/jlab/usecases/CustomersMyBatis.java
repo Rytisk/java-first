@@ -1,7 +1,7 @@
 package com.jlab.usecases;
 
-import com.jlab.mybatis.model.Customer;
 import com.jlab.mybatis.dao.CustomerMapper;
+import com.jlab.mybatis.model.Customer;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
