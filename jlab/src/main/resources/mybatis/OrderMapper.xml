@@ -10,6 +10,11 @@
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="DATE" jdbcType="DATE" property="date" />
     <result column="CUSTOMER_ID" jdbcType="INTEGER" property="customerId" />
+
+    <association property="customer" resultMap="com.jlab.mybatis.dao.CustomerMapper.BaseResultMap"
+                 columnPrefix="customer_"/>
+
+    <collection property="products" javaType="ArrayList" column="id" ofType="Product" select="selectProductsForOrder"/>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
@@ -58,5 +63,14 @@
     -->
     select ID, DATE, CUSTOMER_ID
     from PUBLIC.PORDER
+  </select>
+
+  <select id="selectProductsForOrder" resultType="Product">
+    SELECT
+    p.id,
+    p.name
+    FROM public.product p
+    JOIN public.order_product op on p.id = op.PRODCUT_ID
+    WHERE op.ORDER_ID = #{id,jdbcType=INTEGER}
   </select>
 </mapper>

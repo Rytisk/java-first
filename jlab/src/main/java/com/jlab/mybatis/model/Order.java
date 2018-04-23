@@ -1,6 +1,7 @@
 package com.jlab.mybatis.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Order {
     /**
@@ -101,4 +102,7 @@ public class Order {
     public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
     }
+
+    private Customer customer;
+    private List<Product> products;
 }

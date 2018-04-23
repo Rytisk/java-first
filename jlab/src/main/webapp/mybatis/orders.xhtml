@@ -8,16 +8,17 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head/>
 <h:body>
-    <h2>Orders of customer named #{ordersForCustomer.customer.name}:</h2>
+    <h2>Books of customer named #{ordersForCustomer.customer.name}:</h2>
     <ol>
         <ui:repeat value="#{ordersForCustomer.customer.orders}" var="order">
-            <li>#{order.date}</li>
+            <li>Order date: #{order.date}. Total cost: #{order.getTotalCost()}</li>
         </ui:repeat>
     </ol>
     <h:form>
-        <h:inputText a:placeholder="date" value="#{ordersForCustomer.newOrder.date}">
-            <f:convertDateTime pattern="yyyy-MM-dd" />
-        </h:inputText>
+        <ui:repeat value="#{ordersForCustomer.orderProducts}" var="orderProduct">
+            <li>#{orderProduct.product.name} : #{orderProduct.product.cost} cents</li>
+            <h:inputText value="#{orderProduct.quantity}" required="true" />
+        </ui:repeat>
         <h:commandButton
                 value="Add new Order"
                 action="#{ordersForCustomer.createOrder()}">
