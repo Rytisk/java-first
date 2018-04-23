@@ -31,6 +31,13 @@ public class Order implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.order", cascade=CascadeType.ALL)
     private List<OrderProduct> orderProducts = new ArrayList<>();
 
+    public int getTotalCost(){
+        int total = 0;
+        for (OrderProduct op : orderProducts) {
+            total += op.getQuantity() * op.getProduct().getCost();
+        }
+        return total;
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -11,7 +11,7 @@
     <h2>Books of customer named #{ordersForCustomer.customer.name}:</h2>
     <ol>
         <ui:repeat value="#{ordersForCustomer.customer.orders}" var="order">
-            <li>#{order.date}</li>
+            <li>Order date: #{order.date}. Total cost: #{order.getTotalCost()}</li>
         </ui:repeat>
     </ol>
     <h:form>
