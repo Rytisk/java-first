@@ -67,10 +67,11 @@
 
   <select id="selectProductsForOrder" resultType="Product">
     SELECT
-    p.id,
-    p.name
+    p.ID,
+    p.NAME,
+    p.COST
     FROM public.product p
-    JOIN public.order_product op on p.id = op.PRODCUT_ID
+    JOIN public.order_product op on p.ID = op.PRODCUT_ID
     WHERE op.ORDER_ID = #{id,jdbcType=INTEGER}
   </select>
 </mapper>
