@@ -36,6 +36,14 @@ public class Customer implements Serializable {
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
+    @Size(max = 50)
+    @Column(name="ADDRESS")
+    private String address;
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

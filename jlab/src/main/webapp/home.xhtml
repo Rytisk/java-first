@@ -9,7 +9,7 @@
     <h2>Customers:</h2>
     <ol>
         <ui:repeat value="#{customers.allCustomers}" var="customer">
-            <li><h:link value="#{customer.name}" outcome="orders?customerId=#{customer.id}"/></li>
+            <li> <h:link value="#{customer.name}   #{customer.address}" outcome="customer?customerId=#{customer.id}" /></li>
         </ui:repeat>
     </ol>
     <h:form>

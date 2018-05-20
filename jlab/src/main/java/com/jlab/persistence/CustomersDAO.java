@@ -24,4 +24,6 @@ public class CustomersDAO {
     public void create(Customer customer){
         this.em.persist(customer);
     }
+
+    public Customer update(Customer customer){ return this.em.merge(customer); }
 }
