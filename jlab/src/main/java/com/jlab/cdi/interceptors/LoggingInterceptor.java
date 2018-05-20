@@ -1,4 +1,4 @@
-package com.jlab.interceptors;
+package com.jlab.cdi.interceptors;
 
 import javax.enterprise.inject.Default;
 import javax.interceptor.AroundInvoke;

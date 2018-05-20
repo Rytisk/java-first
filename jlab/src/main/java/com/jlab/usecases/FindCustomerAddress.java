@@ -1,8 +1,7 @@
 package com.jlab.usecases;
 
-import com.jlab.interceptors.Logging;
+import com.jlab.cdi.interceptors.Logging;
 import com.jlab.services.LocationFinder;
-import com.jlab.services.SimpleLocationFinder;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;

@@ -20,6 +20,6 @@ public class SimpleLocationFinder implements Serializable, LocationFinder {
 
         }
 
-        return new AsyncResult<>("Street st. 14, City");
+        return new AsyncResult<>("Simple st. 14, City");
     }
 }

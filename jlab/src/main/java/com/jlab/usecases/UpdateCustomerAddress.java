@@ -1,7 +1,9 @@
 package com.jlab.usecases;
 
+import com.jlab.cdi.specialization.LongGreeting;
+import com.jlab.cdi.specialization.SmartGreeter;
 import com.jlab.entities.Customer;
-import com.jlab.interceptors.Logging;
+import com.jlab.cdi.interceptors.Logging;
 import com.jlab.persistence.CustomersDAO;
 
 import javax.annotation.PostConstruct;
@@ -22,9 +24,12 @@ public class UpdateCustomerAddress implements Serializable {
 
     @Inject CustomersDAO customersDAO;
 
+    @Inject @SmartGreeter
+    LongGreeting greeting;
+
     @PostConstruct
     private void init() {
-        System.out.println("UpdateCustomerAddress INIT CALLED");
+        System.out.println(greeting.greet());
         Map<String, String> requestParameters = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         Integer customerId = Integer.parseInt(requestParameters.get("customerId"));
         this.customer = customersDAO.findById(customerId);

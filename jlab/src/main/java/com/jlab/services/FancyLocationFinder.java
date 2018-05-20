@@ -21,6 +21,6 @@ public class FancyLocationFinder implements Serializable, LocationFinder {
 
         }
 
-        return new AsyncResult<>("Street st. 14, City");
+        return new AsyncResult<>("Fancy st. 14, City");
     }
 }

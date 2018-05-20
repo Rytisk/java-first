@@ -8,8 +8,9 @@
 
     <alternatives>
         <!--<class>com.jlab.services.FancyLocationFinder</class>-->
+        <class>com.jlab.cdi.specialization.MockLongGreeting</class>
     </alternatives>
     <interceptors>
-        <class>com.jlab.interceptors.LoggingInterceptor</class>
+        <class>com.jlab.cdi.interceptors.LoggingInterceptor</class>
     </interceptors>
 </beans>
