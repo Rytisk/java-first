@@ -6,6 +6,9 @@
                       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
         bean-discovery-mode="annotated">
 
+    <alternatives>
+        <!--<class>com.jlab.services.FancyLocationFinder</class>-->
+    </alternatives>
     <interceptors>
         <class>com.jlab.interceptors.LoggingInterceptor</class>
     </interceptors>

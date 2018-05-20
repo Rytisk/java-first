@@ -1,5 +1,6 @@
 package com.jlab.interceptors;
 
+import javax.enterprise.inject.Default;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
@@ -7,6 +8,7 @@ import java.io.Serializable;
 
 @Interceptor
 @Logging
+@Default
 public class LoggingInterceptor implements Serializable {
 
     @AroundInvoke
