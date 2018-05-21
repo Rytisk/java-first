@@ -9,17 +9,17 @@
     <h:body>
         <h2>#{updateCustomerAddress.customer.name}</h2>
         <h:form>
-            <h:outputText value="address: "/>
-            <h:inputText a:placeholder="enter the value" value="#{updateCustomerAddress.customer.address}" required="true"/>
-            <h:commandButton value="update" action="#{updateCustomerAddress.updateCustomerAddress()}">
-                <f:param name="customerId" value="#{ordersForCustomer.customer.id}"/>
+            <h:outputText value="Address: "/>
+            <h:inputText a:placeholder="Enter adress here" value="#{updateCustomerAddress.customer.address}" required="true"/>
+            <h:commandButton value="Update" action="#{updateCustomerAddress.updateCustomerAddress()}">
+                <f:param name="customerId" value="#{updateCustomerAddress.customer.id}"/>
             </h:commandButton>
-            <h:outputText value="value was already modified by other user" rendered="#{param['error'] == 'optimistic-lock-exception'}"/>
+            <h:outputText value="Value was already modified by other user" rendered="#{param['error'] == 'optimistic-lock-exception'}"/>
         </h:form>
         <h:form>
             <h:outputText value="#{findCustomerAddress.locationFindingStatus}"/>
             <h:commandButton value="Find my location" disabled="#{findCustomerAddress.locationFindingRunning}" action="#{findCustomerAddress.findCustomerLocation()}">
-                <f:param name="customerId" value="#{ordersForCustomer.customer.id}"/>
+                <f:param name="customerId" value="#{updateCustomerAddress.customer.id}"/>
             </h:commandButton>
         </h:form>
         <h:link outcome="home" value="Back to home page"/>
