@@ -13,4 +13,7 @@
     <interceptors>
         <class>com.jlab.cdi.interceptors.LoggingInterceptor</class>
     </interceptors>
+    <decorators>
+        <class>com.jlab.cdi.decorators.LocationFinderDecorator</class>
+    </decorators>
 </beans>

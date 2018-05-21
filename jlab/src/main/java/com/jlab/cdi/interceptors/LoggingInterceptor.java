@@ -15,7 +15,7 @@ public class LoggingInterceptor implements Serializable {
     public Object log(InvocationContext context) throws Exception {
         String name = context.getMethod().getName();
         String params = context.getParameters().toString();
-        System.out.println("Method: " + name + ". Parameters: " + params);
+        System.out.println("INTERCEPTOR - Method: " + name + ". Parameters: " + params);
         return context.proceed();
     }
 }
